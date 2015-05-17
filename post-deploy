@@ -14,7 +14,7 @@ if [[ $API_KEY ]]; then
   RAILS_ENV=$(dokku config:get "$APP" RACK_ENV || dokku config:get "$APP" RAILS_ENV || echo 'production')
   GIT_REV=$(git log -n1 --pretty='format:%H' 2> /dev/null || printf '0%.0s' {1..41})
   GIT_MESSAGE=$(git log -n1 --pretty='format:%s' 2> /dev/null || echo '')
-  info "Notifying airbrake..."
+#  info "Notifying airbrake..."
   curl "$BASE_URL/deploys.txt" --silent \
     --data "api_key=$API_KEY" \
     --data "deploy[local_username]=Dokku" \
